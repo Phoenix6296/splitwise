@@ -20,8 +20,8 @@ const Loading = () => (
 const Icon = ({ icon, styles }) => (
   <Image
     className={styles}
-    width={16}
-    height={16}
+    width={40}
+    height={40}
     src={icon}
     alt="button-icon"
   />

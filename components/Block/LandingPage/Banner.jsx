@@ -4,6 +4,7 @@ import { Button } from "@/components/common";
 import { Aeroplane, Heart, Home, Snow } from "@/components/Icons";
 import Image from "next/image";
 import { BANNER_TITLES, ICON_IMAGES } from "@/utils/constant";
+import Link from "next/link";
 
 const ICON_COMPONENTS = [
   <Aeroplane fill="#56C3A0" />,
@@ -36,7 +37,7 @@ export const Banner = () => {
   };
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-40 px-20 lg:mt-20 lg:py-10 py-5">
+    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-40 px-20 lg:py-20 py-5">
       <div className="flex flex-col gap-5 lg:text-left text-center">
         <div className="text-4xl font-semibold">
           <h1>
@@ -65,11 +66,13 @@ export const Banner = () => {
           shared expenses and balances with housemates, trips, groups, friends,
           and family.
         </h3>
-        <Button
-          title="Signup"
-          className="bg-primary text-white py-4"
-          containerStyles="w-40 lg:mx-0 mx-auto"
-        />
+        <Link href="/signup">
+          <Button
+            title="Signup"
+            className="bg-primary text-white py-4"
+            containerStyles="w-40 lg:mx-0 mx-auto"
+          />
+        </Link>
       </div>
       <div className="flex items-center lg:justify-end lg:mt-0 justify-center mt-5">
         <Image

@@ -28,3 +28,5 @@ export const ICON_IMAGES = [
   "heart.svg",
   "snow.svg",
 ];
+
+export const SEARCH_QUERY = "Reset your password for my splitwise";
