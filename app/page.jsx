@@ -9,11 +9,11 @@ export default function Home() {
       <Navbar />
       <Layout>
         <Banner />
-        <section className="flex flex-col gap-10">
-          <h1 className="text-5xl text-primary text-semibold text-center">
+        <section className="flex flex-col gap-10 px-5">
+          <h1 className="md:text-5xl text-4xl text-primary text-semibold text-center">
             Testimonials
           </h1>
-          <div className="flex items-center justify-evenly">
+          <div className="flex md:flex-row flex-col gap-5 items-center justify-evenly">
             {TESTIMONIALS.map((testimonial, index) => (
               <Card
                 key={index}

@@ -23,11 +23,11 @@ export const ForgotPasswordModal = ({ visible, setVisible }) => {
   };
 
   return (
-    <Modal title="Forgot Password" isVisible={visible} onClose={closeModal}>
+    <Modal title="Reset Password" isVisible={visible} onClose={closeModal}>
       {!success ? (
         <form
           onSubmit={handleSubmit}
-          className="p-5 w-[500px] flex gap-5 items-center justify-between"
+          className="p-5 md:w-[500px] w-full flex gap-5 items-center justify-between"
         >
           <div className="flex flex-col gap-5 w-full">
             <Input
@@ -45,7 +45,7 @@ export const ForgotPasswordModal = ({ visible, setVisible }) => {
           </div>
         </form>
       ) : (
-        <div className="p-5 w-[500px] flex flex-col gap-5 items-center justify-between">
+        <div className="p-5 md:w-[500px] w-full flex flex-col gap-5 items-center justify-between">
           <Image
             src="/Assets/email-gif.gif"
             height={200}

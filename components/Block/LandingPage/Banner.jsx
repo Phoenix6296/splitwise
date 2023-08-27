@@ -2,9 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/common";
 import { Aeroplane, Heart, Home, Snow } from "@/components/Icons";
-import Image from "next/image";
-import { BANNER_TITLES, ICON_IMAGES } from "@/utils/constant";
+import { BANNER_TITLES } from "@/utils/constant";
 import Link from "next/link";
+import Lottie from "react-lottie-player";
+import AeroplaneAnimation from "@/components/Animations/aeroplane.json";
+import HomeAnimation from "@/components/Animations/home.json";
+import HeartAnimation from "@/components/Animations/heart.json";
+import AnythingAnimation from "@/components/Animations/anything.json";
 
 const ICON_COMPONENTS = [
   <Aeroplane fill="#56C3A0" />,
@@ -13,17 +17,25 @@ const ICON_COMPONENTS = [
   <Snow fill="#6b7280" />,
 ];
 
+const ICONS = [
+  AeroplaneAnimation,
+  HomeAnimation,
+  HeartAnimation,
+  AnythingAnimation,
+];
+
 export const Banner = () => {
   const [activeIconIndex, setActiveIconIndex] = useState(0);
   const intervalRef = useRef(null);
 
+  const getNextIconIndex = (currentIndex) =>
+    (currentIndex + 1) % ICON_COMPONENTS.length;
+
   const startIconInterval = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
-      setActiveIconIndex(
-        (prevIndex) => (prevIndex + 1) % ICON_COMPONENTS.length
-      );
-    }, 3000);
+      setActiveIconIndex((prevIndex) => getNextIconIndex(prevIndex));
+    }, 5000);
   };
 
   useEffect(() => {
@@ -31,28 +43,29 @@ export const Banner = () => {
     return () => clearInterval(intervalRef.current);
   }, []);
 
-  const handleIconClick = (index) => {
-    setActiveIconIndex(index);
-    startIconInterval();
-  };
-
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-40 px-20 lg:py-20 py-5">
+    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-40 md:px-20 px-5 py-20">
       <div className="flex flex-col gap-5 lg:text-left text-center">
         <div className="text-4xl font-semibold">
           <h1>
             Less stress when <br />
             sharing expenses
           </h1>
-          <h1 className={BANNER_TITLES[activeIconIndex].className}>
+          <h1
+            key={`icon-${activeIconIndex}`}
+            className={BANNER_TITLES[activeIconIndex].className}
+          >
             {BANNER_TITLES[activeIconIndex].title}
           </h1>
         </div>
         <div className="flex gap-2">
           {ICON_COMPONENTS.map((icon, index) => (
             <div
-              key={index}
-              onClick={() => handleIconClick(index)}
+              key={`icon-${index}`}
+              onClick={() => {
+                setActiveIconIndex(index);
+                startIconInterval();
+              }}
               className={`cursor-pointer lg:mx-0 mx-auto ${
                 activeIconIndex === index ? "" : "opacity-30"
               }`}
@@ -70,17 +83,17 @@ export const Banner = () => {
           <Button
             title="Signup"
             className="bg-primary text-white py-4"
-            containerStyles="w-40 lg:mx-0 mx-auto"
+            containerStyles="md:w-40 w-full lg:mx-0 mx-auto"
           />
         </Link>
       </div>
       <div className="flex items-center lg:justify-end lg:mt-0 justify-center mt-5">
-        <Image
-          src={`/Assets/LandingPage/${ICON_IMAGES[activeIconIndex]}`}
-          width={400}
-          height={100}
+        <Lottie
+          key={`icon-${activeIconIndex}`}
+          loop
+          play
+          animationData={ICONS[activeIconIndex]}
           className="lg:w-[400px] w-60"
-          alt="Home Banner Image"
         />
       </div>
     </div>

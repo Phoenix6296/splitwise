@@ -22,11 +22,4 @@ export const BANNER_TITLES = [
   { title: "with anyone.", className: "text-gray-500" },
 ];
 
-export const ICON_IMAGES = [
-  "aeroplane.svg",
-  "home.svg",
-  "heart.svg",
-  "snow.svg",
-];
-
 export const SEARCH_QUERY = "Reset your password for my splitwise";

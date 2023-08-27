@@ -27,10 +27,10 @@ export default function Login() {
   };
 
   return (
-    <Layout className="pt-20 py-10">
+    <Layout className="pt-20 py-10 md:px-0 px-5">
       <form
         onSubmit={handleSubmit}
-        className="w-[500px] rounded-lg shadow-lg bg-white mx-auto p-10 flex flex-col gap-5 items-center justify-evenly"
+        className="md:w-[500px] w-full rounded-lg shadow-lg bg-white mx-auto md:p-10 p-5 py-10 flex flex-col gap-5 items-center justify-evenly"
       >
         <h1 className="text-4xl font-semibold">Login</h1>
         <Input

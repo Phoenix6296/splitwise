@@ -27,8 +27,8 @@ export default function Signup() {
 
   return (
     <Layout>
-      <div className="flex items-center justify-center gap-10 py-20">
-        <div className="h-96">
+      <div className="flex items-center justify-center gap-10 py-20 md:p-auto p-5">
+        <div className="md:block hidden h-96">
           <Image src="/logo-icon.svg" width={200} height={100} alt="Logo" />
         </div>
         <form
