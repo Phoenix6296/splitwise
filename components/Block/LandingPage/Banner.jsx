@@ -5,10 +5,10 @@ import { Aeroplane, Heart, Home, Snow } from "@/components/Icons";
 import { BANNER_TITLES } from "@/utils/constant";
 import Link from "next/link";
 import Lottie from "react-lottie-player";
-import AeroplaneAnimation from "@/components/Animations/aeroplane.json";
-import HomeAnimation from "@/components/Animations/home.json";
-import HeartAnimation from "@/components/Animations/heart.json";
-import AnythingAnimation from "@/components/Animations/anything.json";
+import AeroplaneAnimation from "@/public/Animations/aeroplane.json";
+import HomeAnimation from "@/public/Animations/home.json";
+import HeartAnimation from "@/public/Animations/heart.json";
+import AnythingAnimation from "@/public/Animations/anything.json";
 
 const ICON_COMPONENTS = [
   <Aeroplane fill="#56C3A0" />,
