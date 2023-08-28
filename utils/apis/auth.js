@@ -11,6 +11,15 @@ import {
 } from "firebase/auth";
 import toast from "react-hot-toast";
 
+export const getUser = () => {
+  try {
+    const user = auth.currentUser;
+    return user;
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+
 export const handleLogin = async (email, password, router) => {
   try {
     const user = await signInWithEmailAndPassword(auth, email, password);
